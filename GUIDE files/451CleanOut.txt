@@ -1,0 +1,558 @@
+             GGG   U   U  I  DDDD   EEEE
+            G   G  U   U  I  D   D  E
+            G      U   U  I  D   D  E
+            G  GG  U   U  I  D   D  EEE
+            G   G  U   U  I  D   D  E
+            G   G  U   U  I  D   D  E
+             GGG    UUU   I  DDDD   EEEE
+   
+ GUIDE Classification and Regression Trees and Forests
+ Version 36.2 (Build date: January 10, 2021)       
+ Compiled with Visual Fortran 64 18.0.1.156 on Windows 10              
+ Copyright (c) 1997-2020 Wei-Yin Loh. All rights reserved.
+ This software is based upon work supported by the U.S. Army Research Office,
+ the National Science Foundation and the National Institutes of Health.
+  
+ This job was started on 11/30/21 at 17:31
+  
+ Least squares regression tree
+ Pruning by cross-validation
+ Data description file: 451DescClean.txt
+ Training sample file: cleaned_data.csv
+ Missing value code: NA
+ Records in data file start on line 2
+ 7 N variables changed to S
+ D variable is FSLPR
+ Piecewise constant model
+ Number of records in data file: 13257
+ Length of longest entry in data file: 18
+ Smallest and largest positive weights are  1.0000E+01 and 1.5214E+03
+  
+ Summary information for training sample of size 13257
+ d=dependent, b=split and fit cat variable using indicator variables,
+ c=split-only categorical, i=fit-only categorical (via indicators),
+ s=split-only numerical, n=split and fit numerical, f=fit-only numerical,
+ m=missing-value flag variable, p=periodic variable, w=weight
+                                                  #Codes/           
+                                                  Levels/           
+  Column  Name            Minimum      Maximum    Periods   #Missing
+       1  ACS        c                                  4
+       2  AGER       c                                  4
+       3  ASSOC      c                                  4
+       4  BASE       c                                  6
+       5  CAT        c                                  2
+       6  CLOS       c                                  2
+       7  CON        c                                  3
+       8  DECK       c                                  4
+       9  DET        c                                  3
+      10  DIV        c                                 10
+      11  FNBS       c                                  4
+      12  FOYER      c                                  4
+      13  FRAME      c                                  5
+      14  GAR        c                                  6
+      15  HEAT       c                                  6
+      16  HEAT2      c                                  6
+      17  LNDR       c                                  8
+      18  MFGS       c                                  5
+      19  PATI       c                                  4
+      20  PRCH       c                                  4
+      21  SEWER      c                                  4
+      22  STOR       c                                  5
+      23  WAL1       c                                 10
+      24  WAL2       c                                 10
+      25  WALS       c                                  4
+      26  WATER      c                                  4
+      27  BEDR       c                                  6
+      28  FPLS       c                                  5
+      29  FULB       c                                  6
+      30  HAFB       c                                  5
+      31  WEIGHT     w    10.00        1521.    
+      32  FUEL       c                                  7
+      33  FUEL2      c                                  6
+      34  CONPR      s    0.000        1521.    
+      35  FSLPR      d    1521.       0.2395E+07
+      36  SQFS       s    889.0        8214.    
+      37  FSQFS      s    915.0        7556.    
+      38  LOTV       s    0.000       0.8010E+06
+      39  FNSQ       s    0.000        3000.    
+      40  FFNSQ      s    0.000        3000.    
+      41  AREA       s    0.000       0.8712E+05
+  
+      Total  #cases w/   #missing
+     #cases    miss. D  ord. vals   #X-var   #N-var   #F-var   #S-var
+      13257          0          0        0        0        0        7
+     #P-var   #M-var   #B-var   #C-var   #I-var
+          0        0        0       32        0
+ Weight variable WEIGHT in column: 31
+ Number of cases used for training: 13257
+ Number of split variables: 39
+ Number of cases excluded due to 0 weight or missing D: 0
+  
+ Pruning by v-fold cross-validation, with v = 10
+ Selected tree is based on mean of CV estimates
+ Number of SE's for pruned tree: .5000
+  
+ Weighted error estimates used for pruning
+ Nodewise interaction tests on all variables
+ Split values for N and S variables based on exhaustive search
+ Maximum number of split levels: 23
+ Minimum node sample size: 132
+ Top-ranked variables and chi-squared values at root node
+      1  0.1326E+05   CAT
+      2  0.1326E+05   CLOS
+      3  0.1314E+05   CON
+      4  0.1314E+05   CONPR
+      5  0.1314E+05   DET
+      6  0.1306E+05   FOYER
+      7  0.1306E+05   WALS
+      8  0.1306E+05   WATER
+      9  0.1306E+05   FNBS
+     10  0.1306E+05   SEWER
+     11  0.1306E+05   PATI
+     12  0.1306E+05   PRCH
+     13  0.1306E+05   DECK
+     14  0.1306E+05   ASSOC
+     15  0.1306E+05   AGER
+     16  0.1306E+05   ACS
+     17  0.1306E+05   MFGS
+     18  0.1306E+05   LOTV
+     19  0.1299E+05   FPLS
+     20  0.1299E+05   HAFB
+     21  0.1299E+05   FRAME
+     22  0.1299E+05   STOR
+     23  0.1293E+05   FULB
+     24  0.1293E+05   BEDR
+     25  0.1293E+05   HEAT
+     26  0.1293E+05   FUEL2
+     27  0.1293E+05   GAR
+     28  0.1293E+05   BASE
+     29  0.1293E+05   HEAT2
+     30  0.1288E+05   FUEL
+     31  0.1284E+05   LNDR
+     32  0.1275E+05   DIV
+     33  0.1275E+05   WAL2
+     34  0.1275E+05   WAL1
+     35  0.1129E+05   FFNSQ
+     36  0.1098E+05   SQFS
+     37  0.1098E+05   FSQFS
+     38  0.1091E+05   FNSQ
+     39  0.8547E+04   AREA
+
+ Size and CV MSE and SE of subtrees:
+  Tree   #Tnodes  Mean MSE   SE(Mean)    BSE(Mean)  Median MSE  BSE(Median)
+    1*      45   6.611E+11   3.870E+10   3.715E+10   6.592E+11   5.236E+10
+    2       44   6.613E+11   3.870E+10   3.718E+10   6.597E+11   5.252E+10
+    3       43   6.613E+11   3.870E+10   3.718E+10   6.598E+11   5.252E+10
+    4       42   6.615E+11   3.870E+10   3.711E+10   6.598E+11   5.247E+10
+    5       41   6.620E+11   3.870E+10   3.711E+10   6.598E+11   5.227E+10
+    6       40   6.622E+11   3.871E+10   3.708E+10   6.600E+11   5.215E+10
+    7       39   6.619E+11   3.871E+10   3.708E+10   6.593E+11   5.241E+10
+    8       38   6.625E+11   3.871E+10   3.681E+10   6.596E+11   5.214E+10
+    9       37   6.628E+11   3.871E+10   3.663E+10   6.596E+11   5.223E+10
+   10       36   6.628E+11   3.871E+10   3.663E+10   6.596E+11   5.223E+10
+   11       35   6.631E+11   3.871E+10   3.661E+10   6.596E+11   5.197E+10
+   12       34   6.632E+11   3.871E+10   3.660E+10   6.596E+11   5.187E+10
+   13       32   6.646E+11   3.871E+10   3.672E+10   6.594E+11   5.116E+10
+   14       31   6.671E+11   3.873E+10   3.642E+10   6.601E+11   5.256E+10
+   15       30   6.672E+11   3.873E+10   3.646E+10   6.601E+11   5.256E+10
+   16       29   6.681E+11   3.875E+10   3.679E+10   6.610E+11   5.254E+10
+   17       28   6.681E+11   3.875E+10   3.679E+10   6.610E+11   5.254E+10
+   18       27   6.682E+11   3.876E+10   3.674E+10   6.610E+11   5.254E+10
+   19       26   6.729E+11   3.875E+10   3.674E+10   6.658E+11   5.137E+10
+   20       24   6.784E+11   3.881E+10   3.698E+10   6.767E+11   5.216E+10
+   21       23   6.788E+11   3.881E+10   3.684E+10   6.767E+11   5.205E+10
+   22**     22   6.792E+11   3.883E+10   3.671E+10   6.767E+11   5.195E+10
+   23       21   6.814E+11   3.881E+10   3.669E+10   6.868E+11   5.192E+10
+   24       20   6.829E+11   3.886E+10   3.726E+10   6.868E+11   5.235E+10
+   25       19   6.829E+11   3.886E+10   3.726E+10   6.868E+11   5.235E+10
+   26       17   6.892E+11   3.891E+10   3.614E+10   6.910E+11   4.735E+10
+   27       16   7.042E+11   3.936E+10   3.748E+10   7.052E+11   4.913E+10
+   28       14   7.240E+11   3.955E+10   3.731E+10   7.097E+11   5.433E+10
+   29       13   7.589E+11   4.018E+10   3.624E+10   7.546E+11   5.362E+10
+   30       11   7.601E+11   4.037E+10   3.633E+10   7.571E+11   5.411E+10
+   31       10   7.652E+11   4.051E+10   3.525E+10   7.571E+11   4.790E+10
+   32        9   7.995E+11   4.279E+10   3.783E+10   8.275E+11   6.288E+10
+   33        8   7.995E+11   4.279E+10   3.783E+10   8.275E+11   6.288E+10
+   34        6   8.468E+11   4.672E+10   4.592E+10   8.511E+11   6.589E+10
+   35        5   9.144E+11   4.791E+10   4.267E+10   9.002E+11   6.128E+10
+   36        4   1.031E+12   5.088E+10   4.064E+10   9.952E+11   6.059E+10
+   37        3   1.131E+12   5.364E+10   4.552E+10   1.111E+12   6.647E+10
+   38        2   1.470E+12   6.235E+10   5.881E+10   1.388E+12   9.092E+10
+   39        1   6.759E+12   1.292E+11   1.118E+11   6.606E+12   1.681E+11
+  
+ 0-SE tree based on mean is marked with * and has 45 terminal nodes
+ 0-SE tree based on median is marked with + and has 45 terminal nodes
+ Selected-SE tree based on mean using naive SE is marked with **
+ Selected-SE tree based on mean using bootstrap SE is marked with --
+ Selected-SE tree based on median and bootstrap SE is marked with ++
+ * tree same as + tree
+ ** tree same as ++ tree
+ ** tree same as -- tree
+ ++ tree same as -- tree
+  
+ Following tree is based on mean CV with naive SE estimate (**).
+  
+ Structure of final tree. Each terminal node is marked with a T.
+  
+ D-mean is weighted mean of FSLPR in the node
+ Cases fit give the number of cases used to fit node
+ MSE is residual sum of squares divided by number of cases in node
+        Node    Total    Cases Matrix    Node      Node      Split          Interacting
+        label   cases      fit  rank    D-mean     MSE       variable       variable
+           1    13257    13257     1  2.395E+04  6.760E+12   CAT 
+           2     7774     7774     1  3.763E+05  2.506E+12   FSQFS 
+           4     5821     5821     1  3.233E+05  1.295E+12   DIV 
+           8     2033     2033     1  4.119E+05  1.702E+12   FSQFS 
+          16     1039     1039     1  3.584E+05  1.127E+12   STOR 
+          32T     511      511     1  3.296E+05  6.889E+11   SQFS 
+          33      528      528     1  3.849E+05  1.457E+12   DIV 
+          66T     290      290     1  4.661E+05  1.532E+12   AREA 
+          67T     238      238     1  3.194E+05  5.956E+11   - 
+          17      994      994     1  4.665E+05  1.919E+12   DIV 
+          34      493      493     1  5.392E+05  2.198E+12   AREA 
+          68T     136      136     1  6.867E+05  4.287E+12   - 
+          69T     357      357     1  4.833E+05  7.591E+11   FPLS 
+          35      501      501     1  4.108E+05  1.123E+12   FPLS 
+          70T     331      331     1  3.850E+05  5.232E+11   FSQFS 
+          71T     170      170     1  4.722E+05  1.955E+12   - 
+           9     3788     3788     1  2.808E+05  6.741E+11   SQFS 
+          18     1641     1641     1  2.332E+05  3.923E+11   LOTV 
+          36T    1508     1508     1  2.270E+05  3.569E+11   SQFS 
+          37T     133      133     1  3.088E+05  3.472E+11   - 
+          19     2147     2147     1  3.224E+05  6.366E+11   LOTV 
+          38     1951     1951     1  3.114E+05  5.418E+11   LOTV 
+          76      923      923     1  3.353E+05  7.221E+11   FULB 
+         152T     624      624     1  3.133E+05  5.640E+11   BEDR 
+         153T     299      299     1  3.822E+05  8.720E+11   FSQFS 
+          77     1028     1028     1  2.958E+05  3.317E+11   LOTV 
+         154T     439      439     1  2.640E+05  2.463E+11   FSQFS 
+         155T     589      589     1  3.227E+05  2.780E+11   FSQFS 
+          39T     196      196     1  4.363E+05  6.478E+11   - 
+           5     1953     1953     1  5.479E+05  3.643E+12   SQFS 
+          10     1456     1456     1  4.934E+05  2.528E+12   LOTV 
+          20     1290     1290     1  4.721E+05  2.263E+12   DIV 
+          40T     180      180     1  6.818E+05  6.174E+12   - 
+          41     1110     1110     1  4.471E+05  1.228E+12   FULB 
+          82T     899      899     1  4.301E+05  1.089E+12   LOTV 
+          83T     211      211     1  5.152E+05  1.411E+12   - 
+          21T     166      166     1  6.960E+05  2.137E+12   - 
+          11      497      497     1  7.150E+05  4.621E+12   LOTV 
+          22      278      278     1  7.861E+05  5.296E+12   DIV 
+          44T     134      134     1  6.799E+05  1.780E+12   - 
+          45T     144      144     1  9.293E+05  6.917E+12   - 
+          23T     219      219     1  6.397E+05  3.027E+12   - 
+           3T    5483     5483     1  1.521E+03  0.000E+00   - 
+ Warning: tree very large, omitting node numbers in LaTeX file
+  
+ Number of terminal nodes of final tree: 22
+ Total number of nodes of final tree: 43
+ Second best split variable (based on curvature test) at root node is CLOS
+  
+ Regression tree:
+ For categorical variable splits, values not in training data go to the right
+  
+ Node 1: CAT = "1.0"
+   Node 2: FSQFS <= 3050.0000
+     Node 4: DIV = "1.0", "2.0", "8.0", "9.0"
+       Node 8: FSQFS <= 2150.0000
+         Node 16: STOR = "1.0"
+           Node 32: FSLPR-mean = 329597.39
+         Node 16: STOR /= "1.0"
+           Node 33: DIV = "1.0", "9.0"
+             Node 66: FSLPR-mean = 466081.23
+           Node 33: DIV /= "1.0", "9.0"
+             Node 67: FSLPR-mean = 319396.73
+       Node 8: FSQFS > 2150.0000 or NA
+         Node 17: DIV = "1.0", "9.0"
+           Node 34: AREA <= 4100.0000
+             Node 68: FSLPR-mean = 686736.43
+           Node 34: AREA > 4100.0000 or NA
+             Node 69: FSLPR-mean = 483270.68
+         Node 17: DIV /= "1.0", "9.0"
+           Node 35: FPLS = "0.0", "2.0"
+             Node 70: FSLPR-mean = 385040.03
+           Node 35: FPLS /= "0.0", "2.0"
+             Node 71: FSLPR-mean = 472229.30
+     Node 4: DIV /= "1.0", "2.0", "8.0", "9.0"
+       Node 9: SQFS <= 2050.0000
+         Node 18: LOTV <= 58500.000
+           Node 36: FSLPR-mean = 226980.40
+         Node 18: LOTV > 58500.000 or NA
+           Node 37: FSLPR-mean = 308781.69
+       Node 9: SQFS > 2050.0000 or NA
+         Node 19: LOTV <= 79500.000
+           Node 38: LOTV <= 6150.0000
+             Node 76: FULB = "2.0"
+               Node 152: FSLPR-mean = 313282.11
+             Node 76: FULB /= "2.0"
+               Node 153: FSLPR-mean = 382206.91
+           Node 38: LOTV > 6150.0000 or NA
+             Node 77: LOTV <= 39700.000
+               Node 154: FSLPR-mean = 263951.03
+             Node 77: LOTV > 39700.000 or NA
+               Node 155: FSLPR-mean = 322675.91
+         Node 19: LOTV > 79500.000 or NA
+           Node 39: FSLPR-mean = 436293.14
+   Node 2: FSQFS > 3050.0000 or NA
+     Node 5: SQFS <= 4150.0000
+       Node 10: LOTV <= 124500.00
+         Node 20: DIV = "1.0", "2.0", "9.0"
+           Node 40: FSLPR-mean = 681849.63
+         Node 20: DIV /= "1.0", "2.0", "9.0"
+           Node 41: FULB = "2.0", "3.0"
+             Node 82: FSLPR-mean = 430129.69
+           Node 41: FULB /= "2.0", "3.0"
+             Node 83: FSLPR-mean = 515169.69
+       Node 10: LOTV > 124500.00 or NA
+         Node 21: FSLPR-mean = 695993.91
+     Node 5: SQFS > 4150.0000 or NA
+       Node 11: LOTV <= 13400.000
+         Node 22: DIV = "1.0", "5.0", "7.0"
+           Node 44: FSLPR-mean = 679940.74
+         Node 22: DIV /= "1.0", "5.0", "7.0"
+           Node 45: FSLPR-mean = 929266.09
+       Node 11: LOTV > 13400.000 or NA
+         Node 23: FSLPR-mean = 639691.30
+ Node 1: CAT /= "1.0"
+   Node 3: FSLPR-mean = 1521.3565
+ 
+ ***************************************************************
+ 
+ Predictor means are the weighted means.
+  
+ WARNING: p-values below not adjusted for split search. For a bootstrap solution see:
+  
+ 1. Loh et al. (2016), "Identification of subgroups with differential treatment effects
+ for longitudinal and multiresponse variables", Statistics in Medicine, v.35, 4837-4855.
+  
+ 2. Loh et al. (2019), "Subgroups from regression trees with adjustment for prognostic
+ effects and post-selection inference", Statistics in Medicine, v.38, 545-557.
+  
+ 3. Loh and Zhou (2020), "The GUIDE approach to subgroup identification",
+ in "Design and Analysis of Subgroups with Biopharmaceutical Applications", Springer, pp.147-165.
+  
+Node 1: Intermediate node
+ A case goes into Node 2 if CAT = "1.0"
+ CAT mode = "1521.3564909104623"
+ Coefficients of least squares regression function:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.2395E+05    18.73        0.000    
+ FSLPR mean = 23951.2
+ ----------------------------
+Node 2: Intermediate node
+ A case goes into Node 4 if FSQFS <= 3050.0000
+ FSQFS mean = 2549.2730
+ ----------------------------
+Node 4: Intermediate node
+ A case goes into Node 8 if DIV = "1.0", "2.0", "8.0", "9.0"
+ DIV mode = "5.0"
+ ----------------------------
+Node 8: Intermediate node
+ A case goes into Node 16 if FSQFS <= 2150.0000
+ FSQFS mean = 2150.0946
+ ----------------------------
+Node 16: Intermediate node
+ A case goes into Node 32 if STOR = "1.0"
+ STOR mode = "1.0"
+ ----------------------------
+Node 32: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3296E+06    58.90        0.000    
+ FSLPR mean = 329597.
+ ----------------------------
+Node 33: Intermediate node
+ A case goes into Node 66 if DIV = "1.0", "9.0"
+ DIV mode = "8.0"
+ ----------------------------
+Node 66: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.4661E+06    36.61        0.000    
+ FSLPR mean = 466081.
+ ----------------------------
+Node 67: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3194E+06    46.52        0.000    
+ FSLPR mean = 319397.
+ ----------------------------
+Node 17: Intermediate node
+ A case goes into Node 34 if DIV = "1.0", "9.0"
+ DIV mode = "8.0"
+ ----------------------------
+Node 34: Intermediate node
+ A case goes into Node 68 if AREA <= 4100.0000
+ AREA mean = 9415.5541
+ ----------------------------
+Node 68: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.6867E+06    24.07        0.000    
+ FSLPR mean = 686736.
+ ----------------------------
+Node 69: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.4833E+06    65.15       0.3331E-15
+ FSLPR mean = 483271.
+ ----------------------------
+Node 35: Intermediate node
+ A case goes into Node 70 if FPLS = "0.0", "2.0"
+ FPLS mode = "0.0"
+ ----------------------------
+Node 70: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3850E+06    69.47       0.2220E-15
+ FSLPR mean = 385040.
+ ----------------------------
+Node 71: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.4722E+06    28.78        0.000    
+ FSLPR mean = 472229.
+ ----------------------------
+Node 9: Intermediate node
+ A case goes into Node 18 if SQFS <= 2050.0000
+ SQFS mean = 2138.2094
+ ----------------------------
+Node 18: Intermediate node
+ A case goes into Node 36 if LOTV <= 58500.000
+ LOTV mean = 23589.341
+ ----------------------------
+Node 36: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.2270E+06    104.1        0.000    
+ FSLPR mean = 226980.
+ ----------------------------
+Node 37: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3088E+06    43.89        0.000    
+ FSLPR mean = 308782.
+ ----------------------------
+Node 19: Intermediate node
+ A case goes into Node 38 if LOTV <= 79500.000
+ LOTV mean = 34067.977
+ ----------------------------
+Node 38: Intermediate node
+ A case goes into Node 76 if LOTV <= 6150.0000
+ LOTV mean = 26943.279
+ ----------------------------
+Node 76: Intermediate node
+ A case goes into Node 152 if FULB = "2.0"
+ FULB mode = "2.0"
+ ----------------------------
+Node 152: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3133E+06    65.72        0.000    
+ FSLPR mean = 313282.
+ ----------------------------
+Node 153: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3822E+06    43.71       0.4441E-15
+ FSLPR mean = 382207.
+ ----------------------------
+Node 77: Intermediate node
+ A case goes into Node 154 if LOTV <= 39700.000
+ LOTV mean = 44529.806
+ ----------------------------
+Node 154: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.2640E+06    84.07       0.2220E-15
+ FSLPR mean = 263951.
+ ----------------------------
+Node 155: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.3227E+06    103.7        0.000    
+ FSLPR mean = 322676.
+ ----------------------------
+Node 39: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.4363E+06    50.34        0.000    
+ FSLPR mean = 436293.
+ ----------------------------
+Node 5: Intermediate node
+ A case goes into Node 10 if SQFS <= 4150.0000
+ SQFS mean = 3870.2067
+ ----------------------------
+Node 10: Intermediate node
+ A case goes into Node 20 if LOTV <= 124500.00
+ LOTV mean = 49441.662
+ ----------------------------
+Node 20: Intermediate node
+ A case goes into Node 40 if DIV = "1.0", "2.0", "9.0"
+ DIV mode = "5.0"
+ ----------------------------
+Node 40: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.6818E+06    23.49        0.000    
+ FSLPR mean = 681850.
+ ----------------------------
+Node 41: Intermediate node
+ A case goes into Node 82 if FULB = "2.0", "3.0"
+ FULB mode = "3.0"
+ ----------------------------
+Node 82: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.4301E+06    81.43       0.5551E-15
+ FSLPR mean = 430130.
+ ----------------------------
+Node 83: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.5152E+06    42.74       0.1110E-15
+ FSLPR mean = 515170.
+ ----------------------------
+Node 21: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.6960E+06    38.20        0.000    
+ FSLPR mean = 695994.
+ ----------------------------
+Node 11: Intermediate node
+ A case goes into Node 22 if LOTV <= 13400.000
+ LOTV mean = 57402.166
+ ----------------------------
+Node 22: Intermediate node
+ A case goes into Node 44 if DIV = "1.0", "5.0", "7.0"
+ DIV mode = "5.0"
+ ----------------------------
+Node 44: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.6799E+06    40.20        0.000    
+ FSLPR mean = 679941.
+ ----------------------------
+Node 45: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.9293E+06    23.79        0.000    
+ FSLPR mean = 929266.
+ ----------------------------
+Node 23: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant     0.6397E+06    35.06       0.2220E-15
+ FSLPR mean = 639691.
+ ----------------------------
+Node 3: Terminal node
+ Coefficients of least squares regression functions:
+ Regressor    Coefficient  t-stat      p-value
+ Constant      1521.       0.1798+308    1.000    
+ FSLPR mean = 1521.36
+ ----------------------------
+ Proportion of variance (R-squared) explained by tree model: 0.9052
+ 
+ Observed and fitted values are stored in 451CleanFit.txt
+ LaTeX code for tree is in 451CleanTree.tex
+ Elapsed time in seconds: 21.578
