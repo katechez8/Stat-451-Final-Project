@@ -13,7 +13,7 @@
  This software is based upon work supported by the U.S. Army Research Office,
  the National Science Foundation and the National Institutes of Health.
   
- This job was started on 11/30/21 at 17:32
+ This job was started on 12/01/21 at 14:49
   
  Random forest of GUIDE least-squares regression trees
  No pruning
@@ -21,12 +21,14 @@
  Training sample file: cleaned_data.csv
  Missing value code: NA
  Records in data file start on line 2
- 7 N variables changed to S
+ 5 N variables changed to S
  D variable is FSLPR
  Piecewise constant model
  Number of records in data file: 13257
  Length of longest entry in data file: 18
- Smallest and largest positive weights are  1.0000E+01 and 1.5214E+03
+ Warning: C variable CAT takes only 1 value
+ Warning: C variable CLOS takes only 1 value
+ Smallest and largest positive weights are  1.0000E+00 and 5.0200E+02
   
  Summary information for training sample of size 13257
  d=dependent, b=split and fit cat variable using indicator variables,
@@ -36,72 +38,70 @@
                                                   #Codes/           
                                                   Levels/           
   Column  Name            Minimum      Maximum    Periods   #Missing
-       1  ACS        c                                  4
-       2  AGER       c                                  4
-       3  ASSOC      c                                  4
-       4  BASE       c                                  6
-       5  CAT        c                                  2
-       6  CLOS       c                                  2
+       1  ACS        c                                  3
+       2  AGER       c                                  3
+       3  ASSOC      c                                  3
+       4  BASE       c                                  5
+       5  CAT        c                                  1
+       6  CLOS       c                                  1
        7  CON        c                                  3
-       8  DECK       c                                  4
-       9  DET        c                                  3
-      10  DIV        c                                 10
-      11  FNBS       c                                  4
-      12  FOYER      c                                  4
+       8  DECK       c                                  3
+       9  DET        c                                  2
+      10  DIV        c                                  9
+      11  FNBS       c                                  3
+      12  FOYER      c                                  3
       13  FRAME      c                                  5
-      14  GAR        c                                  6
-      15  HEAT       c                                  6
-      16  HEAT2      c                                  6
-      17  LNDR       c                                  8
-      18  MFGS       c                                  5
-      19  PATI       c                                  4
-      20  PRCH       c                                  4
-      21  SEWER      c                                  4
-      22  STOR       c                                  5
-      23  WAL1       c                                 10
-      24  WAL2       c                                 10
-      25  WALS       c                                  4
-      26  WATER      c                                  4
-      27  BEDR       c                                  6
-      28  FPLS       c                                  5
-      29  FULB       c                                  6
-      30  HAFB       c                                  5
-      31  WEIGHT     w    10.00        1521.    
-      32  FUEL       c                                  7
-      33  FUEL2      c                                  6
-      34  CONPR      s    0.000        1521.    
-      35  FSLPR      d    1521.       0.2395E+07
-      36  SQFS       s    889.0        8214.    
-      37  FSQFS      s    915.0        7556.    
-      38  LOTV       s    0.000       0.8010E+06
-      39  FNSQ       s    0.000        3000.    
-      40  FFNSQ      s    0.000        3000.    
-      41  AREA       s    0.000       0.8712E+05
+      14  GAR        c                                  5
+      15  HEAT       c                                  5
+      16  HEAT2      c                                  5
+      17  LNDR       c                                  7
+      18  MFGS       c                                  4
+      19  PATI       c                                  3
+      20  PRCH       c                                  3
+      21  SEWER      c                                  3
+      22  STOR       c                                  4
+      23  WAL1       c                                  9
+      24  WAL2       c                                  9
+      25  WALS       c                                  3
+      26  WATER      c                                  3
+      27  BEDR       c                                  5
+      28  FPLS       c                                  4
+      29  FULB       c                                  5
+      30  HAFB       c                                  4
+      31  WEIGHT     w    1.000        502.0    
+      32  FUEL       c                                  6
+      33  FUEL2      c                                  5
+      34  FSLPR      d   0.1100E+06   0.2395E+07
+      35  FSQFS      s    889.0        8214.    
+      36  LOTV       s    2587.       0.8010E+06
+      37  FNSQ       s    0.000        3500.    
+      38  FFNSQ      s    0.000        3000.    
+      39  AREA       s    2000.       0.8712E+05
   
       Total  #cases w/   #missing
      #cases    miss. D  ord. vals   #X-var   #N-var   #F-var   #S-var
-      13257          0          0        0        0        0        7
+      13257          0          0        0        0        0        5
      #P-var   #M-var   #B-var   #C-var   #I-var
           0        0        0       32        0
  Weight variable WEIGHT in column: 31
  Number of cases used for training: 13257
- Number of split variables: 39
+ Number of split variables: 37
  Number of cases excluded due to 0 weight or missing D: 0
   
  Number of trees in ensemble: 500
- Number of variables used for splitting: 14
- Nodewise interaction tests on all variables
+ Number of variables used for splitting: 13
+ No nodewise interaction tests
  Fraction of cases used for splitting each node: .0075
  Maximum number of split levels: 28
- Minimum node sample size: 50
- Mean number of terminal nodes:    115.8    
- Resubstitution estimate of mean squared error: 8406721680.5060
+ Minimum node sample size: 66
+ Mean number of terminal nodes:    148.2    
+ Resubstitution estimate of mean squared error: 14962559350.9905
  based on number of training cases: 13257
- Proportion of variance (R-squared) explained by ensemble model: 0.8680
+ Proportion of variance (R-squared) explained by ensemble model: 0.7004
  
  Number of OOB cases: 13257
- OOB estimate of mean squared error: 9127083487.2124
- Mean number of trees per OOB observation: 183.87
+ OOB estimate of mean squared error: 15958042474.2926
+ Mean number of trees per OOB observation: 183.95
  
  Observed and fitted values are stored in 451ForestFit.txt
- Elapsed time in seconds: 304.14
+ Elapsed time in seconds: 379.30
